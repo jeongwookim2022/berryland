@@ -1,0 +1,22 @@
+.berryland_logo {
+    font-family: 'Finlandica', sans-serif;
+    font-weight: bold;
+}
+
+.berryland_footer_button {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+}
+
+.berryland_footer {
+    text-align:center;
+}
+
+.berryland_footer_margin {
+    margin-top: 1.2rem;
+}
+
+.berryland_header {
+    text-align:center;
+    margin: 2.3rem;
+}
