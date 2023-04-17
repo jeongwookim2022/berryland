@@ -25,5 +25,5 @@ def hello(request):
 
     else:
         hello_list = Hello.objects.all()
-        return render(request, 'accountapp/hello.html', context={'hello_list': f"GET METHOD {hello_list}"})
+        return render(request, 'accountapp/hello.html', context={'hello_list': hello_list})
 
