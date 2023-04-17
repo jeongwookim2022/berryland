@@ -16,10 +16,12 @@
             </div>
         </form>
 
-        {% if hello_output %}
-        <h1>
-            {{ hello_output.text }}
-        </h1>
+        {% if hello_list %}
+            {% for hello in hello_list %}
+            <h4>
+                {{ hello.text }}
+            </h4>
+            {% endfor %}
         {% endif %}
 
     </div>
