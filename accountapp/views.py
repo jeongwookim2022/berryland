@@ -20,6 +20,10 @@ def hello(request):
 
         # ###After responding POST request, Redirect to current URL 'account/hello/'.###
         # HttpResponseRedirect(reverse()) -> For not writing full URL.
+        # By doing so above, it's redirected the current URL.
+        # That means it's GET request then -> it renders 'hello.html' and sends 'hello_list'
+        # As a result, it shows every 'hello' in 'hello_list'.
+
         # return render(request, 'accountapp/hello.html', context={'hello_list': hello_list})
         return HttpResponseRedirect(reverse('accountapp:hello'))
 
