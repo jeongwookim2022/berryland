@@ -1,8 +1,11 @@
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView
 
 from accountapp.models import Hello
 
@@ -30,4 +33,13 @@ def hello(request):
     else:
         hello_list = Hello.objects.all()
         return render(request, 'accountapp/hello.html', context={'hello_list': hello_list})
+
+
+# ################################## Class Based View ########################################
+class AccountCreateView(CreateView):
+    model = User
+    form_class = UserCreationForm
+    success_url = reverse_lazy('accountapp:hello')  # It's CBV so using 'reverse()' throws an error.
+    template_name = 'accountapp/create.html'
+
 
