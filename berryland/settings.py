@@ -61,6 +61,8 @@ INSTALLED_APPS = [
 
     # ##### MY APPS #####
     'accountapp',
+    'profileapp',
+
 
 ]
 
