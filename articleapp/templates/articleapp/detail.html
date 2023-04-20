@@ -31,7 +31,14 @@
                 Delete
             </a>
             {% endif %}
+
+
             <hr>
+
+
+            {% for comment in target_article.comment.all %}
+                {% include 'commentapp/detail.html' with comment=comment %}
+            {% endfor %}
 
             <!-- Sync an Article that will be used or be used in 'commentapp/create.html'
                  with 'target_article' here.   -->
