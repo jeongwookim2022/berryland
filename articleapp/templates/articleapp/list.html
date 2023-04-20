@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--USED JS SOURCE CODES from OPEN SOURCE-->
+<!--https://github.com/e-oj/Magic-Grid/blob/master/dist/magic-grid.cjs.js-->
+{% block content %}
+
+<style>
+
+    .container div {
+      width: 250px;
+      background-color: lightgreen;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2rem;
+    }
+
+    .container img {
+        width: 100%;
+        border-radius: 2rem
+    }
+
+</style>
+
+    <div class="container">
+
+        <div class="item1">
+            <img src="https://picsum.photos/200/300" alt="">
+        </div>
+        <div>
+            <img src="https://picsum.photos/200/260" alt="">
+        </div>
+        <div>
+            <img src="https://picsum.photos/200/280" alt="">
+        </div>
+        <div>
+            <img src="https://picsum.photos/200/200" alt="">
+        </div>
+        <div>
+            <img src="https://picsum.photos/200/320" alt="">
+        </div>
+        <div>
+            <img src="https://picsum.photos/200/310" alt="">
+        </div>
+        <div>
+            <img src="https://picsum.photos/200/400" alt="">
+        </div>
+        <div>
+            <img src="https://picsum.photos/200/340" alt="">
+        </div>
+
+
+    </div>
+
+<!--CONNECTING JS to this 'list.html'.-->
+<script src="{% static 'js/magicgird.js' %}"></script>
+
+
+{% endblock %}
