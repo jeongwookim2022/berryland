@@ -5,10 +5,22 @@
 <!--https://github.com/e-oj/Magic-Grid/blob/master/dist/magic-grid.cjs.js-->
 {% block content %}
 
+<!--    Adjusted sizes for RESPONSIVE LAYOUT-->
+<!--    -> .container {} & .container a {}-->
 <style>
+
+    .container {
+        padding: 0;
+        margin: 0, auto;
+    }
+
+    .container a {
+        width: 45%;
+        max-width: 250px;
+    }
+
     .container div {
       width: 250px;
-      background-color: lightgreen;
       display: flex;
       justify-content: center;
       align-items: center;
