@@ -23,6 +23,7 @@ urlpatterns = [
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
     path('articles/', include('articleapp.urls')),
+    path('comments/', include('commentapp.urls')),
 
-    # This is for showing IMAGE in profile.
+                  # This is for showing IMAGE in profile.
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

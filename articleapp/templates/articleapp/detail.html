@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
     <div>
         <div style="text-align: center; max-width: 350px;
@@ -33,6 +32,10 @@
             </a>
             {% endif %}
             <hr>
+
+            <!-- Sync an Article that will be used or be used in 'commentapp/create.html'
+                 with 'target_article' here.   -->
+            {% include 'commentapp/create.html' with article=target_article %}
 
         </div>
     </div>
