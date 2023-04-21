@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import RedirectView, ListView
 
+from articleapp.models import Article
 from projectapp.models import Project
 from subscribeapp.models import Subscribe
 
@@ -29,3 +30,15 @@ class SubscribeView(RedirectView):
 
         return super(SubscribeView, self).get(request, *args, **kwargs)
 
+
+@method_decorator(login_required, 'get')
+class SubscribeListView(ListView):
+    model = Article
+    context_object_name = 'article_list'
+    template_name = 'subscribeapp/list.html'
+    paginate_by = 5
+
+    def get_queryset(self):
+        projects = Subscribe.objects.filter(user=self.request.user).values_list('project')
+        article_list = Article.objects.filter(project__in=projects)
+        return article_list
