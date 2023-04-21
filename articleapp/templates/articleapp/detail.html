@@ -22,23 +22,24 @@
             <hr style="margin-top: 0;">
 
 
-            <img style="width: 100%; border-radius: 1rem; margin-top: .5rem; margin-bottom: 3rem;"
+            <img style="width: 100%; border-radius: 1rem; margin-top: .5rem; margin-bottom: 0rem;"
                  src="{{ target_article.image.url }}" alt="">
             <p>
-                {{ target_article.content }}
+                {{ target_article.content | safe }}
             </p>
 
             {% if target_article.writer ==  user %}
-            <a href="{% url 'articleapp:update' pk=target_article.pk %}"
-               class="btn btn-dark rounded-pill col-3">
-                Update
-            </a>
-            <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
-               class="btn btn-danger rounded-pill col-3">
-                Delete
-            </a>
+            <div style="margin-top: 2rem;">
+                <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+                   class="btn btn-dark rounded-pill col-3">
+                    Update
+                </a>
+                <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
+                   class="btn btn-danger rounded-pill col-3">
+                    Delete
+                </a>
             {% endif %}
-
+            </div>
 
             <hr style="margin-bottom: 0rem;">
 
