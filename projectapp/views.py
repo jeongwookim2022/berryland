@@ -10,6 +10,7 @@ from django.views.generic.list import MultipleObjectMixin
 from articleapp.models import Article
 from projectapp.forms import ProjectCreationForm
 from projectapp.models import Project
+from subscribeapp.models import Subscribe
 
 
 @method_decorator(login_required, 'get')
@@ -38,8 +39,15 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
     # - By using '~~self).get_context_data(object_list=object_list)'
     #   Can use 'object_list' in the related Template.
     def get_context_data(self, **kwargs):
+        project = self.object
+        user = self.request.user
+
+        if user.is_authenticated:
+            subscribe = Subscribe.objects.filter(user=user, project=project)
+
         object_list = Article.objects.filter(project=self.get_object())
-        return super(ProjectDetailView, self).get_context_data(object_list=object_list, **kwargs)
+        return super(ProjectDetailView, self).get_context_data(object_list=object_list,
+                                                               subscribe=subscribe, **kwargs)
 
 
 class ProjectListView(ListView):

@@ -10,9 +10,29 @@
         <h2 style="font-family: 'NanumSquareB'">
             {{ target_project.title }}
         </h2>
-        <h5 style="margin-bottom: 3rem;">
+        <h5 style="margin-bottom: 0.5rem;">
             {{ target_project.description }}
         </h5>
+    </div>
+
+    <div class="text-center mb-5">
+        {% if user.is_authenticated %}
+
+            {% if not subscribe %}
+             <a href="{% url 'subscribeapp:subscribe' %}?project_pk={{ target_project.pk }}"
+                 style="font-family: 'NanumSquareEB'; width: 15%; height: 15%; margin-bottom: 2rem; max-width: 500px;"
+                 class="btn btn-dark rounded-pill px-4 mt-3">
+                 Follow
+             </a>
+            {% else %}
+             <a href="{% url 'subscribeapp:subscribe' %}?project_pk={{ target_project.pk }}"
+                style="font-family: 'NanumSquareEB'; width: 15%; height: 15%; margin-bottom: 2rem; max-width: 500px;"
+                class="btn btn-dark rounded-pill px-4 mt-3">
+                Unfollow
+             </a>
+            {% endif %}
+
+        {% endif %}
     </div>
 
     <div>
