@@ -5,7 +5,9 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic.list import MultipleObjectMixin
 
+from articleapp.models import Article
 from projectapp.forms import ProjectCreationForm
 from projectapp.models import Project
 
@@ -21,10 +23,23 @@ class ProjectCreateView(CreateView):
         return reverse('projectapp:detail', kwargs={'pk': self.object.pk})
 
 
-class ProjectDetailView(DetailView):
+# 1. MultipleObjectMixin
+# - To add 'Articles' in a specific 'Project'.
+class ProjectDetailView(DetailView, MultipleObjectMixin):
     model = Project
     context_object_name = 'target_project'
     template_name = 'projectapp/detail.html'
+
+    paginate_by = 3
+
+    # 2.
+    # - Get Articles, by filtering, that belong to a Project that has the same Objects with Current Project.
+    #   And assign them in 'object_list'.
+    # - By using '~~self).get_context_data(object_list=object_list)'
+    #   Can use 'object_list' in the related Template.
+    def get_context_data(self, **kwargs):
+        object_list = Article.objects.filter(project=self.get_object())
+        return super(ProjectDetailView, self).get_context_data(object_list=object_list, **kwargs)
 
 
 class ProjectListView(ListView):

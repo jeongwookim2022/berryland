@@ -8,6 +8,9 @@ from django.db import models
 # - User's object approaches Article using 'related_name'.
 # 2. writer = ~(on_delete=SET_NULL)
 # - Articles will stay although User object is deleted.
+from projectapp.models import Project
+
+
 class Article(models.Model):
     writer = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='article', null=True)
 
@@ -16,3 +19,5 @@ class Article(models.Model):
     content = models.TextField(null=True)
 
     created_when = models.DateField(auto_created=True, null=True)
+
+    project = models.ForeignKey(Project, on_delete=models.SET_NULL, null=True)

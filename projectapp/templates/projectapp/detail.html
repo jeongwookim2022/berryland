@@ -3,7 +3,7 @@
 {% block content %}
 
 <div>
-    <div>
+    <div style="text-align: center; margin-top: 3rem;">
         <img src="{{ target_project.image.url }}" alt=""
              style="height: 12rem; width: 12rem; border-radius: 20rem; margin-bottom: 2rem;
                     object-fit: cover;">
@@ -14,6 +14,11 @@
             {{ target_project.description }}
         </h5>
     </div>
+
+    <div>
+        {% include 'snippets/list_fragment.html' with article_list=object_list %}
+    </div>
+
 </div>
 
 {% endblock%}

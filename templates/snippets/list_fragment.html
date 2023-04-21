@@ -1,0 +1,64 @@
+{% load static %}
+
+<!--USED JS SOURCE CODES from OPEN SOURCE-->
+<!--https://github.com/e-oj/Magic-Grid/blob/master/dist/magic-grid.cjs.js-->
+
+<!--    Adjusted sizes for RESPONSIVE LAYOUT-->
+<!--    -> .container {} & .container a {}-->
+<style>
+
+    .container {
+        padding: 0;
+        margin: 0, auto;
+    }
+
+    .container a {
+        width: 45%;
+        max-width: 250px;
+    }
+
+    .container div {
+      width: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2rem;
+    }
+
+    .container img {
+        width: 100%;
+        border-radius: 2rem
+    }
+</style>
+
+    {% if article_list %}
+    <div class="container">
+        <!--1.  'article=article'   -->
+        <!-- It notifies that 'article' here underneath this is same with 'article' in card.html. -->
+        {% for article in article_list %}
+        <a href="{% url 'articleapp:detail' pk=article.pk%}">
+            {% include 'snippets/card.html' with article=article %}
+        </a>
+        {% endfor%}
+    </div>
+
+    <!--CONNECTING JS to this 'list.html'.-->
+    <script src="{% static 'js/magicgird.js' %}"></script>
+
+    {% else %}
+
+    <div style="text-align: center; margin-top: 6rem;">
+        <h1>No Articles Yet!</h1>
+    </div>
+
+    {% endif %}
+
+
+    {% include 'snippets/pagination.html' with page_obj=page_obj%}
+
+
+    <div style="text-align: center; margin-bottom: 10rem;">
+        <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
+            Create Article
+        </a>
+    </div>
