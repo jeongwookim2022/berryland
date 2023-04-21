@@ -4,7 +4,7 @@
 }
 
 .berryland_footer_button {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-top: 1.5rem;
 }
 
@@ -13,12 +13,14 @@
 }
 
 .berryland_footer_margin {
-    margin-top: 1.2rem;
+    margin-top: 0.3rem;
+    margin-bottom: 2.3rem;
 }
 
 .berryland_header {
     text-align:center;
-    margin: 2.3rem;
+    margin-top: 2.3rem;
+    margin-bottom: 1rem;
 }
 
 
@@ -29,3 +31,24 @@
 
     }
 }
+
+
+a {
+    color: black;
+    text-decoration: None;
+}
+
+a:hover {
+    color: black;
+    text-decoration: None;
+}
+
+.berryland_header_navs {
+    margin: 0rem .3rem;
+
+}
+
+.berryland_header_navbar {
+    margin-top: 1.2rem;
+}
+

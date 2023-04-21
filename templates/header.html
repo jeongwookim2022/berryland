@@ -7,25 +7,27 @@
         </h1>
     </div>
 
-    <div>
-        <a href="{% url 'articleapp:list' %}">
+    <div class="berryland_header_navbar">
+        <a href="{% url 'articleapp:list' %}" class="berryland_header_navs">
             <span>Articles</span>
         </a>
-        <span>nav2</span>
+        <a href="{% url 'projectapp:list' %}" class="berryland_header_navs">
+            <span>Projects</span>
+        </a>
         <span>nav3</span>
         {% if not user.is_authenticated %}
         <!--By using 'next' param, can indicate where to go after Login.-->
-        <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
+        <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="berryland_header_navs">
             <span>Login</span>
         </a>
-        <a href="{% url 'accountapp:create' %}">
+        <a href="{% url 'accountapp:create' %}" class="berryland_header_navs">
             <span>SignUp</span>
         </a>
         {% else %}
-        <a href="{% url 'accountapp:detail' pk=user.pk%}">
+        <a href="{% url 'accountapp:detail' pk=user.pk%}" class="berryland_header_navs">
             <span>MyPage</span>
         </a>
-        <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
+        <a href="{% url 'accountapp:logout' %}?next={{ request.path }}" class="berryland_header_navs">
             <span>Logout</span>
         </a>
         {% endif %}
