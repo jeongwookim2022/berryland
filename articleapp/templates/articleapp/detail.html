@@ -7,12 +7,19 @@
             <h1>
                 {{ target_article.title }}
             </h1>
-            <h5>
-                By {{ target_article.writer.profile.nickname }}
-            </h5>
+            <a href="{% url 'accountapp:detail' pk=target_article.writer.pk %}">
+                <h5 style="font-family: NanumSquareB">
+                    By {{ target_article.writer.profile.nickname }}
+                </h5>
+            </a>
+            <a href="{% url 'projectapp:detail' pk=target_article.project.pk %}">
+                <h5 style="margin-top: 0.4rem;">
+                    (In Project {{ target_article.project.title }})
+                </h5>
+            </a>
 
 
-            <hr>
+            <hr style="margin-top: 0;">
 
 
             <img style="width: 100%; border-radius: 1rem; margin-top: .5rem; margin-bottom: 3rem;"
@@ -33,7 +40,7 @@
             {% endif %}
 
 
-            <hr>
+            <hr style="margin-bottom: 0rem;">
 
 
             {% for comment in target_article.comment.all %}
