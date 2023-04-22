@@ -12,7 +12,6 @@ from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
-from accountapp.models import Hello
 
 # METHOD DECORATOR LIST
 from articleapp.models import Article
@@ -20,32 +19,32 @@ from articleapp.models import Article
 has_ownership = [login_required, account_ownership_required]
 
 
-@login_required
-def hello(request):
-    # Authentication
-    if request.user.is_authenticated:
-        if request.method == "POST":
-
-            temp = request.POST.get('hello_input')
-
-            new_hello = Hello()
-            new_hello.text = temp
-            new_hello.save()
-
-            # hello_list = Hello.objects.all()
-
-            # ###After responding POST request, Redirect to current URL 'account/hello/'.###
-            # HttpResponseRedirect(reverse()) -> For not writing full URL.
-            # By doing so above, it's redirected the current URL.
-            # That means it's GET request then -> it renders 'hello.html' and sends 'hello_list'
-            # As a result, it shows every 'hello' in 'hello_list'.
-
-            # return render(request, 'accountapp/hello.html', context={'hello_list': hello_list})
-            return HttpResponseRedirect(reverse('accountapp:hello'))
-
-        else:
-            hello_list = Hello.objects.all()
-            return render(request, 'accountapp/hello.html', context={'hello_list': hello_list})
+# @login_required
+# def hello(request):
+#     # Authentication
+#     if request.user.is_authenticated:
+#         if request.method == "POST":
+#
+#             temp = request.POST.get('hello_input')
+#
+#             new_hello = Hello()
+#             new_hello.text = temp
+#             new_hello.save()
+#
+#             # hello_list = Hello.objects.all()
+#
+#             # ###After responding POST request, Redirect to current URL 'account/hello/'.###
+#             # HttpResponseRedirect(reverse()) -> For not writing full URL.
+#             # By doing so above, it's redirected the current URL.
+#             # That means it's GET request then -> it renders 'hello.html' and sends 'hello_list'
+#             # As a result, it shows every 'hello' in 'hello_list'.
+#
+#             # return render(request, 'accountapp/hello.html', context={'hello_list': hello_list})
+#             return HttpResponseRedirect(reverse('accountapp:hello'))
+#
+#         else:
+#             hello_list = Hello.objects.all()
+#             return render(request, 'accountapp/hello.html', context={'hello_list': hello_list})
 
     # 1.
     # Not Authenticated

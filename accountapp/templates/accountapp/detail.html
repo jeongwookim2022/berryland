@@ -5,9 +5,9 @@
     <div>
         <div style="text-align: center; max-width: 600px;
                     margin: 4rem auto">
-
             <p>
-                {{ target_user.date_joined }}
+                <span style="font-weight: bold">With us since </span>
+                <span>{{ target_user.date_joined }}</span>
             </p>
 
             {% if target_user.profile %}
@@ -21,15 +21,18 @@
                 {{ target_user.profile.nickname }}
 
                 {% if target_user == user%}
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                    Edit
+                <a class="material-icons"
+                   style="box-shadow: 0 0 4px; #ccc; border-radius: 0.5rem; padding: .1rem;"
+                   href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                    edit
                 </a>
                 {% endif %}
 
             </h2>
-            <h5 style="margin-bottom: 3rem;">
+            <h5 style="margin-bottom: 0.4rem;">
                 {{ target_user.profile.message }}
             </h5>
+
             {% else %}
 
                 {% if target_user == user%}
@@ -48,16 +51,18 @@
 
 
             {% if target_user == user %}
-            <a href="{% url 'accountapp:update' pk=user.pk %}">
-                <p>
-                    Change Info
-                </p>
-            </a>
-            <a href="{% url 'accountapp:delete' pk=user.pk %}">
-                <p>
-                    Delete
-                </p>
-            </a>
+            <div style="margin-top: 1.3rem;">
+                <a class="material-icons"
+                   style="box-shadow: 0 0 10px #aaa; font-size: 120%; margin-right: 0.1rem;"
+                   href="{% url 'accountapp:update' pk=user.pk %}">
+                        settings
+                </a>
+                <a class="material-icons"
+                   style="box-shadow: 0 0 10px #fcc; font-size: 120%;"
+                   href="{% url 'accountapp:delete' pk=user.pk %}">
+                        cancel
+                </a>
+            </div>
             {% endif %}
 
         </div>

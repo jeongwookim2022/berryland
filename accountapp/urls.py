@@ -1,12 +1,12 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
-from accountapp.views import hello, AccountCreateView, AccountDetailView, AccountUpdateView, AccountDeleteView
+from accountapp.views import AccountCreateView, AccountDetailView, AccountUpdateView, AccountDeleteView
 
 app_name = "accountapp"  # "127.0.0.1:8000/account/hello" -> "accountapp:hello"
 
 urlpatterns = [
-    path('hello/', hello, name="hello"),
+    # path('hello/', hello, name="hello"),
     path('create/', AccountCreateView.as_view(), name='create'),
 
     # For LoginView, indicating 'template_name' is required.
