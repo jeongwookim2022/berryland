@@ -46,8 +46,8 @@ DEBUG = True
 
 # #################### ALLOWING HOSTS from other devices ##############
 # ################### FOR Mobile users ################################
-# ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
