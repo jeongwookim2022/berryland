@@ -60,7 +60,7 @@ has_ownership = [login_required, account_ownership_required]
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accountapp:hello')  # It's CBV so using 'reverse()' throws an error.
+    success_url = reverse_lazy('accountapp:login')  # It's CBV so using 'reverse()' throws an error.
     template_name = 'accountapp/create.html'
 
 
@@ -93,7 +93,7 @@ class AccountUpdateView(UpdateView):
     # -> To prevent users from changing their IDs(Usernames).
     # form_class = UserCreationForm
     form_class = AccountUpdateForm
-    success_url = reverse_lazy('accountapp:hello')  # It's CBV so using 'reverse()' throws an error.
+    success_url = reverse_lazy('home')  # It's CBV so using 'reverse()' throws an error.
     template_name = 'accountapp/update.html'
 
     # 2.
