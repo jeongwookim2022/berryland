@@ -85,5 +85,5 @@ db.sqlite3
 .idea/
 __pycache__/
 media/
-
+aws_berryland_key.pem
 

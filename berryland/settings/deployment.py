@@ -59,7 +59,7 @@ DATABASES = {
 
 
 ######################################################
-CSRF_TRUSTED_ORIGINS = ['http://70.34.213.95/']
+# CSRF_TRUSTED_ORIGINS = ['http://70.34.213.95/']
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -69,8 +69,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_REPLACE_HTTPS_REFERER = True
 
-CORS_ORIGIN_WHITELIST = (
-    'http://70.34.213.95/'
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'http://70.34.213.95/'
+# )
 
 #########################################################
