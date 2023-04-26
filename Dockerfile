@@ -6,7 +6,7 @@ WORKDIR /home/
 # Added this command below because of the cached data.
 RUN echo 'testing1'
 RUN echo 'testing2'
-RUN echo 't4'
+RUN echo 't6'
 ######################################################
 
 # 2. Bring Source codes from GitHub
