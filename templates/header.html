@@ -1,11 +1,14 @@
 <div class="berryland_header">
 
 
-    <div>
-        <h1 class="berryland_logo">
-            BerryLand
-        </h1>
-    </div>
+
+        <a href="{% url 'home' %}">
+            <span class="berryland_logo"
+                  style="font-size: 300%;">
+                BerryLand
+            </span>
+        </a>
+
 
     <div class="berryland_header_navbar">
         <a href="{% url 'articleapp:list' %}" class="berryland_header_navs">

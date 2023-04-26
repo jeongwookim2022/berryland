@@ -19,7 +19,7 @@
 
 .berryland_header {
     text-align:center;
-    margin-top: 2.3rem;
+    margin-top: 1.3rem;
     margin-bottom: 1rem;
 }
 
@@ -45,10 +45,10 @@ a:hover {
 
 .berryland_header_navs {
     margin: 0rem .3rem;
-
+    font-size: 130%;
 }
 
 .berryland_header_navbar {
-    margin-top: 1.2rem;
+    margin-top: 0.2rem;
 }
 

@@ -7,17 +7,19 @@
     <div style="text-align: center; max-width: 700px;
                 font-family: NanumSquareR; margin: 4rem auto">
 
-        <h3 style="font-family: NanumSquareL">
+        <h3 style="font-family: NanumSquareL; margin-bottom: 0rem;">
             By
         </h3>
 
         {% if target_article.writer.profile %}
-        <a href="{% url 'accountapp:detail' pk=target_article.writer.pk %}">
-            <h3 style="font-family: NanumSquareB">
-                {{ target_article.writer.profile.nickname }}
-            </h3>
-        </a>
-        <!--작성자 사진 및 프로필 링크 추가-->
+        <div style="margin-top: 0rem; margin-bottom: 0.8rem;">
+            <a href="{% url 'accountapp:detail' pk=target_article.writer.pk %}">
+                <span style="font-family: NanumSquareB; font-size: 165%;">
+                    {{ target_article.writer.profile.nickname }}
+                </span>
+            </a>
+        </div>
+
         <a href="{% url 'accountapp:detail' pk=target_article.writer.pk %}">
            <img src="{{ target_article.writer.profile.image.url }}" alt=""
                 style="height: 12rem; width:12rem; border-radius: 10rem;
@@ -40,12 +42,32 @@
             {{ target_article.title }}
         </h1>
         <h5 style="font-size: 95%;">
-            {{ target_article.when }}
+            {{ target_article.created_when }}
         </h5>
         <img src="{{ target_article.image.url }}" alt=""
              style="width: 40%; height: 40%; margin-bottom: 1rem;
                     border-radius: 2rem; margin-top: 0rem;">
 
+        <div style="height: 2rem;">
+            <a href="{% url 'likeapp:article_like' pk=target_article.pk %}">
+                <i style="vertical-align: middle; font-size: 1.5rem; color: #0080ff;"
+                   class="material-icons">
+                    thumb_up
+                </i>
+            </a>
+            <span style="vertical-align: middle; font-size: 1.16rem;">
+                {{ target_article.like }}
+            </span>
+            <a href="{% url 'likeapp:article_dislike' pk=target_article.pk %}">
+                <i style="vertical-align: middle; font-size: 1.5rem; color: #ff0000;"
+                   class="material-icons">
+                    thumb_down
+                </i>
+            </a>
+            <span style="vertical-align: middle; font-size: 1.16rem;">
+                {{ target_article.dislike }}
+            </span>
+        </div>
 
         <div style="text-align: left; padding: 0 5rem; max-width: 350px;
                     font-family: NanumSquareR; margin: 1.5rem auto">

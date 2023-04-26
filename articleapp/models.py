@@ -18,6 +18,9 @@ class Article(models.Model):
     image = models.ImageField(upload_to='article/', null=False)
     content = models.TextField(null=True)
 
-    created_when = models.DateField(auto_created=True, null=True)
+    created_when = models.DateTimeField(auto_now=True, null=True)
 
     project = models.ForeignKey(Project, on_delete=models.SET_NULL, null=True)
+
+    like = models.IntegerField(default=0)
+    dislike = models.IntegerField(default=0)
